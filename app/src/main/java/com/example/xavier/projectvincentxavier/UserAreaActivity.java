@@ -18,4 +18,5 @@ public class UserAreaActivity extends AppCompatActivity {
         final TextView welcomeMessage = (TextView) findViewById(R.id.tvWelcomeMessage);
 
     }
+
 }
