@@ -10,6 +10,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.xavier.projectvincentxavier.LoginActivity">
 
+    <TextView
+        android:text="Register here"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:id="@+id/tvRegister"
+        android:layout_below="@+id/bLogin"
+        android:layout_centerHorizontal="true" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,11 +58,12 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Register here"
+        android:text="UserArea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:id="@+id/tvRegister"
-        android:layout_below="@+id/bLogin"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/tvUserArea"
+        android:layout_below="@+id/tvRegister"
+        android:layout_alignLeft="@+id/tvRegister"
+        android:layout_alignStart="@+id/tvRegister"
+        android:layout_marginTop="49dp" />
 </RelativeLayout>

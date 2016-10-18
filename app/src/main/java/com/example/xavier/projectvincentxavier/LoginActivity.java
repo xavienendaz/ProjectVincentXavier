@@ -25,10 +25,22 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v){
                 //open the registerActivity when user click on registerLink
                 Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-                    LoginActivity.this.startActivity(registerIntent);
+                LoginActivity.this.startActivity(registerIntent);
 
             }
         });
+
+        //just for see the userArea
+        final TextView userAreaLink = (TextView) findViewById(R.id.tvUserArea);
+        userAreaLink.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                //open the registerActivity when user click on registerLink
+                Intent seeUseArea = new Intent(LoginActivity.this, UserAreaActivity.class);
+                LoginActivity.this.startActivity(seeUseArea);
+
+            }
+        });
+
 
 
     }
