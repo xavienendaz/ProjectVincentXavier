@@ -35,8 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         userAreaLink.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 //open the registerActivity when user click on registerLink
-                Intent seeUseArea = new Intent(LoginActivity.this, UserAreaActivity.class);
-                LoginActivity.this.startActivity(seeUseArea);
+                Intent goUseArea = new Intent(LoginActivity.this, UserAreaActivity.class);
+                LoginActivity.this.startActivity(goUseArea);
 
             }
         });

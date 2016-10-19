@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">ProjectVincentXavier</string>
 
+    <string name="titleTopics">Topics</string>
+
+    <string-array name="topics_array">
+        <item>Fruits &amp; Légumes</item>
+        <item>Protéines</item>
+        <item>Féculents</item>
+        <item>Boissons</item>
+        <item>Desserts</item>
+    </string-array>
 </resources>
