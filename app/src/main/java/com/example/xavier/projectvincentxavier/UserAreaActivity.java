@@ -23,7 +23,7 @@ public class UserAreaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_area);
-
+        setTitle("Profile");
 
         final EditText etUsername = (EditText) findViewById(R.id.etUsername);
         final EditText etAge = (EditText) findViewById(R.id.etAge);

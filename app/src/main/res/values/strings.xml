@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">ProjectVincentXavier</string>
-
+    <string name="app_name">Nutrition questions</string>
     <string name="titleTopics">Topics</string>
     <string name="titleQuestionsList">Questions</string>
 
@@ -11,7 +10,6 @@
     <item>Boissons</item>
     <item>Desserts</item>
     </string-array>
-
 
     <string-array name="questionsList_array">
         <item>q1</item>

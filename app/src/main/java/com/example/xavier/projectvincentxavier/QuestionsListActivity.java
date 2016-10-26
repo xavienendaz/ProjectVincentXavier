@@ -16,6 +16,7 @@ public class QuestionsListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions_list);
+        setTitle("Questions list");
 
 
         final String [] questionsList = getResources().getStringArray(R.array.questionsList_array);

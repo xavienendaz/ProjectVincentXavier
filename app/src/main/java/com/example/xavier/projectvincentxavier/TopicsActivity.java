@@ -18,7 +18,7 @@ public class TopicsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topics);
-
+        setTitle("Topics");
 
         final String [] topics = getResources().getStringArray(R.array.topics_array);
         ListView list;

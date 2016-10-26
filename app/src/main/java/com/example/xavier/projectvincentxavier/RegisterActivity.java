@@ -11,6 +11,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        setTitle("Registration");
 
         //create final etAge for finding the textView etAge
         final EditText etAge = (EditText) findViewById(R.id.etAge);
