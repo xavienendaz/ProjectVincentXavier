@@ -1,6 +1,5 @@
 package com.example.xavier.projectvincentxavier;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,21 +9,20 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class TopicsActivity extends AppCompatActivity {
+public class QuestionsListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_topics);
+        setContentView(R.layout.activity_questions_list);
 
 
-        final String [] topics = getResources().getStringArray(R.array.topics_array);
+        final String [] questionsList = getResources().getStringArray(R.array.questionsList_array);
         ListView list;
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.listview_layout, topics){
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.listview_layout, questionsList){
 
             // Call for every entry in the ArrayAdapter
             @Override
@@ -41,7 +39,7 @@ public class TopicsActivity extends AppCompatActivity {
 
                 //Add Text to the layout
                 TextView textView1 = (TextView) view.findViewById(R.id.listview);
-                textView1.setText(topics[position]);
+                textView1.setText(questionsList[position]);
 
                 return view;
             }

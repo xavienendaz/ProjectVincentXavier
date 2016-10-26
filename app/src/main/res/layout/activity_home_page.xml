@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_home_page"
     android:layout_width="match_parent"
@@ -10,4 +11,40 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.xavier.projectvincentxavier.HomePageActivity">
 
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+        android:id="@+id/ibTopics"
+        android:layout_marginBottom="24dp"
+        android:layout_above="@+id/ibSettings"
+        android:layout_alignRight="@+id/ibSettings"
+        android:layout_alignEnd="@+id/ibSettings" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+        android:id="@+id/ibProfil"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+        android:id="@+id/ibQuestions"
+        android:layout_alignTop="@+id/ibTopics"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+        android:id="@+id/ibSettings"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

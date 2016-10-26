@@ -2,12 +2,25 @@
     <string name="app_name">ProjectVincentXavier</string>
 
     <string name="titleTopics">Topics</string>
+    <string name="titleQuestionsList">Questions</string>
 
     <string-array name="topics_array">
-        <item>Fruits &amp; Légumes</item>
-        <item>Protéines</item>
-        <item>Féculents</item>
-        <item>Boissons</item>
-        <item>Desserts</item>
+    <item>Fruits &amp; Légumes</item>
+    <item>Protéines</item>
+    <item>Féculents</item>
+    <item>Boissons</item>
+    <item>Desserts</item>
     </string-array>
+
+
+    <string-array name="questionsList_array">
+        <item>q1</item>
+        <item>q2</item>
+        <item>q3</item>
+        <item>q4</item>
+        <item>q5</item>
+    </string-array>
+
+
+
 </resources>
