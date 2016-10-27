@@ -3,6 +3,12 @@
     <string name="titleTopics">Topics</string>
     <string name="titleQuestionsList">Questions</string>
 
+    <!-- Menu -->
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="Settings">Settings</string>
+    <string name="Topics">Topics</string>
+
     <string-array name="topics_array">
         <item>General culture</item>
         <item>Fruits</item>
