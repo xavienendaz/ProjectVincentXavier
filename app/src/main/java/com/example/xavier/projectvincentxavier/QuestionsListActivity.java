@@ -58,8 +58,8 @@ public class QuestionsListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                // TODO Auto-generated method stub
-                //Toast.makeText(this, "You have selected: " + topics[position], Toast.LENGTH_LONG).show();
+                Intent i = new Intent(QuestionsListActivity.this, QuestionActivity.class);
+                QuestionsListActivity.this.startActivity(i);
             }
         });
 
