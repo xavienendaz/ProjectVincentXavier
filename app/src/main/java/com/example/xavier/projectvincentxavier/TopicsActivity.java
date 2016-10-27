@@ -60,7 +60,8 @@ public class TopicsActivity extends AppCompatActivity {
                 // TODO Auto-generated method stub
                 //Toast.makeText(this, "You have selected: " + topics[position], Toast.LENGTH_LONG).show();
 
-
+                Intent i = new Intent(TopicsActivity.this, QuestionsListActivity.class);
+                TopicsActivity.this.startActivity(i);
 
             }
         });

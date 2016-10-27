@@ -4,11 +4,13 @@
     <string name="titleQuestionsList">Questions</string>
 
     <string-array name="topics_array">
-    <item>Fruits &amp; Légumes</item>
-    <item>Protéines</item>
-    <item>Féculents</item>
-    <item>Boissons</item>
-    <item>Desserts</item>
+        <item>General culture</item>
+        <item>Fruits</item>
+        <item>Vegetables</item>
+        <item>Proteins</item>
+        <item>Starchy food</item>
+        <item>Drinks</item>
+        <item>Desserts</item>
     </string-array>
 
     <string-array name="questionsList_array">
@@ -18,7 +20,6 @@
         <item>q4</item>
         <item>q5</item>
     </string-array>
-
 
 
 </resources>

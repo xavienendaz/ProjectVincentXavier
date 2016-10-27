@@ -1,5 +1,6 @@
 package com.example.xavier.projectvincentxavier;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -58,8 +60,17 @@ public class QuestionsListActivity extends AppCompatActivity {
                                     int position, long id) {
                 // TODO Auto-generated method stub
                 //Toast.makeText(this, "You have selected: " + topics[position], Toast.LENGTH_LONG).show();
+            }
+        });
 
 
+
+        //adding a question
+        final ImageButton ib = (ImageButton) findViewById(R.id.ibAddQuestion);
+        ib.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent i = new Intent(QuestionsListActivity.this, AddQuestionActivity.class);
+                QuestionsListActivity.this.startActivity(i);
 
             }
         });

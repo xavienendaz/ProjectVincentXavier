@@ -31,12 +31,12 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //just for see the userArea
-        final TextView userAreaLink = (TextView) findViewById(R.id.tvUserArea);
-        userAreaLink.setOnClickListener(new View.OnClickListener(){
+        final TextView tv = (TextView) findViewById(R.id.tvUserArea);
+        tv.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 //open the registerActivity when user click on registerLink
-                Intent goUseArea = new Intent(LoginActivity.this, UserAreaActivity.class);
-                LoginActivity.this.startActivity(goUseArea);
+                Intent i = new Intent(LoginActivity.this, UserAreaActivity.class);
+                LoginActivity.this.startActivity(i);
 
             }
         });

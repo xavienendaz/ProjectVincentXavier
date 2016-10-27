@@ -7,33 +7,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class SettingsActivity extends AppCompatActivity {
+public class AddQuestionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-
-        setTitle("Settings");
-
+        setContentView(R.layout.activity_add_question);
+        setTitle("New question");
 
 
-
-
-
-
-
-        //delete an account
-        final Button b  = (Button) findViewById(R.id.btDeleteAccount);
+        //redirect on questionlist and saving data
+        final Button b = (Button) findViewById(R.id.btSave);
         b.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                //redirect the user on loginActivity when he deleted his account
-                Intent i = new Intent(SettingsActivity.this, LoginActivity.class);
-                SettingsActivity.this.startActivity(i);
+                Intent i = new Intent(AddQuestionActivity.this, QuestionsListActivity.class);
+                AddQuestionActivity.this.startActivity(i);
 
             }
         });
-
-
     }
 }
