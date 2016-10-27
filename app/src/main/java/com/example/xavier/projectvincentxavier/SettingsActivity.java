@@ -23,8 +23,7 @@ public class SettingsActivity extends AppCompatActivity {
 
 
 
-
-
+        //delete an account
         final Button btDeleteAccount  = (Button) findViewById(R.id.btDeleteAccount);
         btDeleteAccount.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
