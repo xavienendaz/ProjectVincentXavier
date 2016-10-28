@@ -27,15 +27,6 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
-        android:id="@+id/ibProfil"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <ImageButton
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
         android:id="@+id/ibQuestions"
         android:layout_alignTop="@+id/ibTopics"
         android:layout_alignParentRight="true"
@@ -49,4 +40,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
 </RelativeLayout>
