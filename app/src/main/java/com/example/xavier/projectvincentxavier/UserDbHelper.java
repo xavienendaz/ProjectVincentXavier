@@ -14,7 +14,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "PROJECT.DB";
     private static final int DATABASE_VERSION = 1;
-    private static final String CREATE_QUERY ="CREATE TABLE "+ Table_user.NewUserInfo.TABLE_NAME+"("+ Table_user.NewUserInfo.USER_NAME+" TEXT,"+ Table_user.NewUserInfo.USER_PASSWORD+" TEXT);";
+    private static final String CREATE_QUERY ="CREATE TABLE "+ DB_Contract.NewUserInfo.TABLE_NAME+"("+ DB_Contract.NewUserInfo.USER_NAME+" TEXT,"+ DB_Contract.NewUserInfo.USER_PASSWORD+" TEXT);";
 
     public UserDbHelper(Context context){
 
@@ -30,9 +30,9 @@ public class UserDbHelper extends SQLiteOpenHelper {
 
     public void addInfo(String username,String password,SQLiteDatabase db){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Table_user.NewUserInfo.USER_NAME,username);
-        contentValues.put(Table_user.NewUserInfo.USER_PASSWORD,password);
-        db.insert(Table_user.NewUserInfo.TABLE_NAME,null,contentValues);
+        contentValues.put(DB_Contract.NewUserInfo.USER_NAME,username);
+        contentValues.put(DB_Contract.NewUserInfo.USER_PASSWORD,password);
+        db.insert(DB_Contract.NewUserInfo.TABLE_NAME,null,contentValues);
         Log.e("DATABASE OPERATIONS", "One row inserted");
     }
 
