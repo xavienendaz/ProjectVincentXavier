@@ -38,8 +38,13 @@ public class LoginActivity extends AppCompatActivity {
                 Intent i = new Intent(LoginActivity.this, UserAreaActivity.class);
                 LoginActivity.this.startActivity(i);
 
+
+
             }
         });
+
+
+
 
 
 

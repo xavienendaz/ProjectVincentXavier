@@ -8,9 +8,10 @@ import android.provider.BaseColumns;
 
 public class DB_Contract {
 
-    public static abstract class NewUserInfo implements BaseColumns {
+    public static abstract class NewUserInfo implements BaseColumns
+    {
+        public static final String TABLE_NAME = "user_info";
         public static final String USER_NAME = "user_name";
         public static final String USER_PASSWORD = "user_password";
-        public static final String TABLE_NAME = "user_info";
     }
 }
