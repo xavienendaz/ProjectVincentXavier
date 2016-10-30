@@ -18,4 +18,25 @@ public class HomePageActivity extends AppCompatActivity {
 
 
     }
+
+    //redirect the user on different pages
+    public void goAddquestion(View view) {
+        Intent i = new Intent(HomePageActivity.this, AddQuestionActivity.class);
+        HomePageActivity.this.startActivity(i);
+    }
+
+    public void goTopics(View view) {
+        Intent i = new Intent(HomePageActivity.this, TopicsActivity.class);
+        HomePageActivity.this.startActivity(i);
+    }
+
+    public void goProfile(View view) {
+        Intent i = new Intent(HomePageActivity.this, UserProfileActivity.class);
+        HomePageActivity.this.startActivity(i);
+    }
+
+    public void goSettings(View view) {
+        Intent i = new Intent(HomePageActivity.this, SettingsActivity.class);
+        HomePageActivity.this.startActivity(i);
+    }
 }

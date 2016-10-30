@@ -8,7 +8,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.xavier.projectvincentxavier.AddQuestionActivity">
+    tools:context="com.example.xavier.projectvincentxavier.AddQuestionActivity"
+    android:textAlignment="center">
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -21,18 +23,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="31dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="Topic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:id="@+id/tvTopic"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -59,6 +49,27 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="saveQuestion"/>
+
+    <Spinner
+        android:id="@+id/spinnerTopics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/topics_array"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/tvChooseTopic"
+        android:layout_toEndOf="@+id/tvChooseTopic"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"></Spinner>
+
+    <TextView
+        android:text="Choose a topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvChooseTopic"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

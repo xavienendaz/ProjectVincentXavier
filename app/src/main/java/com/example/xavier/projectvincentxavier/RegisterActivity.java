@@ -1,6 +1,7 @@
 package com.example.xavier.projectvincentxavier;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,35 +29,58 @@ public class RegisterActivity extends AppCompatActivity {
         etUsername = (EditText) findViewById(R.id.etUsername);
 
 
-
-
-
     }
 
-    public void registerUser(View view){
+    public void registerUser(View view) {
         String verifyPassword = etPassword.getText().toString();
-        if(TextUtils.isEmpty(verifyPassword)) {
-            etPassword.setError("Error");
-            return;
+        String verifyUsername = etUsername.getText().toString();
+
+            //set error if the user let one field empty
+        if (TextUtils.isEmpty(verifyPassword) || TextUtils.isEmpty(verifyUsername)) {
+            if(TextUtils.isEmpty(verifyPassword) && TextUtils.isEmpty(verifyUsername)){
+                etPassword.setError("Enter a password");
+                etUsername.setError("Enter a username");
+                return;
+                } else if (TextUtils.isEmpty(verifyUsername)) {
+                etUsername.setError("Enter a username");
+                return;
+                } else  if (TextUtils.isEmpty(verifyPassword)) {
+                etPassword.setError("Enter a password");
+                return;
+                }
+            }else {
+
+
+            /****************
+             *   /here we need to check in the database if the username already exist
+             ****************/
+
+
+
+            //if username and password are not empty
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
+
+                userDbHelper = new UserDbHelper(context);
+                sqLiteDatabase = userDbHelper.getWritableDatabase();
+                userDbHelper.addInfo(username, password, sqLiteDatabase);
+                Toast.makeText(getBaseContext(), "User created", Toast.LENGTH_LONG).show();
+                userDbHelper.close();
+
+            //open the loginActivity when user register
+            Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+            RegisterActivity.this.startActivity(i);
+            }
+
+
         }
-        else{
-            String username = etUsername.getText().toString();
-            String password = etPassword.getText().toString();
-
-            userDbHelper = new UserDbHelper(context);
-            sqLiteDatabase = userDbHelper.getWritableDatabase();
-            userDbHelper.addInfo(username,password,sqLiteDatabase);
-            Toast.makeText(getBaseContext(),"User created",Toast.LENGTH_LONG).show();
-            userDbHelper.close();
-        }
-
-
-        }
-
-
-
-
-
-
     }
+
+
+
+
+
+
+
+
 

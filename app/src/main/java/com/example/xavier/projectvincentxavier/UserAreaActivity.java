@@ -16,11 +16,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class UserAreaActivity extends AppCompatActivity {
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+
 
     ListView listView;
     SQLiteDatabase sqLiteDatabase;
@@ -32,7 +28,7 @@ public class UserAreaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_area);
-        setTitle("Profile");
+        setTitle("Database");
         listView = (ListView)findViewById(R.id.listview_userarea);
         listDataAdapter = new ListDataAdapter(getApplicationContext(),R.id.row_layout);
         listView.setAdapter(listDataAdapter);
@@ -53,56 +49,9 @@ public class UserAreaActivity extends AppCompatActivity {
         }while(cursor.moveToNext());
         }
 
-        final EditText etUsername = (EditText) findViewById(R.id.etUsername);
-        final EditText etAge = (EditText) findViewById(R.id.etAge);
-        final TextView welcomeMessage = (TextView) findViewById(R.id.tvWelcomeMessage);
 
-
-
-
-
-
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-    /*Addid the actionbar*/
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    /*Actionbar's actions*/
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.action_home:
-                Intent goHome = new Intent(this, HomePageActivity.class);
-                startActivity(goHome);
-                return true;
-
-            case R.id.action_settings:
-                Intent goSettings = new Intent(this, SettingsActivity.class);
-                startActivity(goSettings);
-                return true;
-
-            case R.id.action_profile:
-                Intent goProfile = new Intent(this, UserAreaActivity.class);
-                startActivity(goProfile);
-                return true;
-
-            case R.id.action_topics:
-                Intent goTopics = new Intent(this, TopicsActivity.class);
-                startActivity(goTopics);
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
 }
 
 

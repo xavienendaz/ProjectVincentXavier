@@ -41,14 +41,35 @@ public class UserDbHelper extends SQLiteOpenHelper {
     //read user info from database
     public Cursor getInfo(SQLiteDatabase db)
     {
-        Cursor  cursor = null;
+        Cursor  cursor;
         String[] projections = {DB_Contract.NewUserInfo.USER_NAME, DB_Contract.NewUserInfo.USER_PASSWORD};
-        db. query(DB_Contract.NewUserInfo.TABLE_NAME,projections,null,null,null,null,null);
+        cursor = db. query(DB_Contract.NewUserInfo.TABLE_NAME,projections,null,null,null,null,null);
         return cursor;
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+
+
+    //get user from database
+    public Cursor getUser(String username, SQLiteDatabase sqLiteDatabase){
+        String[] projections = {DB_Contract.NewUserInfo.USER_NAME, DB_Contract.NewUserInfo.USER_PASSWORD};
+        String selection =  DB_Contract.NewUserInfo.USER_NAME+" LIKE ? ";
+        String [] selectionArg = {username};
+        Cursor cursor = sqLiteDatabase.query(DB_Contract.NewUserInfo.TABLE_NAME,projections,selection,selectionArg,null,null,null);
+        return cursor;
+    }
+
+
+
+    //delete user from database
+    public void deleteUser(String username, SQLiteDatabase sqLiteDatabase)
+    {
+        String selection =  DB_Contract.NewUserInfo.USER_NAME+" LIKE ? ";
+        String [] selectionArg = {username};
+        sqLiteDatabase.delete(DB_Contract.NewUserInfo.TABLE_NAME,selection,selectionArg);
 
     }
 

@@ -1,6 +1,8 @@
 package com.example.xavier.projectvincentxavier;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        //just for see the userArea
+        //just for see the database
         final TextView tv = (TextView) findViewById(R.id.tvUserArea);
         tv.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -49,4 +51,22 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+    public void buttonLogin(View view) {
+
+        /****************
+         *   /here we need to check if username and password are corrects
+         ****************/
+
+
+
+
+        //open the homeActivity when user log in
+        Intent i = new Intent(LoginActivity.this, HomePageActivity.class);
+        LoginActivity.this.startActivity(i);
+
+
+    }
+
+
 }

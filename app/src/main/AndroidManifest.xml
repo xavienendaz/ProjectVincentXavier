@@ -38,7 +38,8 @@
         <activity android:name=".TopicsActivity" />
         <activity android:name=".QuestionActivity" />
         <activity android:name=".QuestionsListActivity" />
-        <activity android:name=".AddQuestionActivity"></activity>
+        <activity android:name=".AddQuestionActivity" />
+        <activity android:name=".UserProfileActivity"></activity>
     </application>
 
 </manifest> <!-- android.permission.INTERNET = vocal -->
