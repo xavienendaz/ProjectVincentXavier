@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
                 userDbHelper = new UserDbHelper(context);
                 sqLiteDatabase = userDbHelper.getWritableDatabase();
                 userDbHelper.addInfo(username, password, sqLiteDatabase);
-                Toast.makeText(getBaseContext(), "User created", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "User created", Toast.LENGTH_SHORT).show();
                 userDbHelper.close();
 
             //open the loginActivity when user register

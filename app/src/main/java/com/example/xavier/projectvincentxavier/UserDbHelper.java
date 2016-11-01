@@ -35,7 +35,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_QUERY_TBL_USER);
-        db.execSQL(CREATE_QUERY_TBL_QUESTIONS);
+//        db.execSQL(CREATE_QUERY_TBL_QUESTIONS);
         Log.e("DATABASE OPERATIONS","Tables created.");
     }
 

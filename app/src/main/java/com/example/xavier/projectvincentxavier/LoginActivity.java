@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        //just for see the database
+        //see the database
         final TextView tv = (TextView) findViewById(R.id.tvUserArea);
         tv.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
