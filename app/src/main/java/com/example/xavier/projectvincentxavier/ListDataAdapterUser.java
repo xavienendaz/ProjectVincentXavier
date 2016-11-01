@@ -1,8 +1,6 @@
 package com.example.xavier.projectvincentxavier;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +14,11 @@ import java.util.List;
  * Created by Xavier on 30.10.2016.
  */
 
-public class ListDataAdapter extends ArrayAdapter {
+public class ListDataAdapterUser extends ArrayAdapter {
 
     List list = new ArrayList();
 
-    public ListDataAdapter(Context context, int resource) {
+    public ListDataAdapterUser(Context context, int resource) {
         super(context, resource);
     }
 
@@ -65,9 +63,9 @@ public class ListDataAdapter extends ArrayAdapter {
 
         }
 
-        DataProvider dataProvider = (DataProvider)this.getItem(position);
-        layoutHandler.USERNAME.setText(dataProvider.getUsername());
-        layoutHandler.PASSWORD.setText(dataProvider.getPassword());
+        DataProviderUser dataProviderUser = (DataProviderUser)this.getItem(position);
+        layoutHandler.USERNAME.setText(dataProviderUser.getUsername());
+        layoutHandler.PASSWORD.setText(dataProviderUser.getPassword());
 
         return row;
     }

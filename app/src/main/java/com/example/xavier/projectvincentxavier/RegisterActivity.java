@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -28,6 +29,18 @@ public class RegisterActivity extends AppCompatActivity {
         etPassword = (EditText) findViewById(R.id.etPassword);
         etUsername = (EditText) findViewById(R.id.etUsername);
 
+        //go back to login
+        final TextView tv = (TextView) findViewById(R.id.tvAlreadyMember);
+        tv.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                //open the registerActivity when user click on registerLink
+                Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                RegisterActivity.this.startActivity(i);
+
+
+
+            }
+        });
 
     }
 
@@ -74,6 +87,20 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 

@@ -1,11 +1,14 @@
 package com.example.xavier.projectvincentxavier;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.webkit.ConsoleMessage;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,8 +19,12 @@ import android.widget.Toast;
 
 public class AddQuestionActivity extends AppCompatActivity {
 
-
+    Context context = this;
+    UserDbHelper userDbHelper;
+    SQLiteDatabase sqLiteDatabase;
     EditText etTitle, etContent;
+    Spinner spinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +39,7 @@ public class AddQuestionActivity extends AppCompatActivity {
 
 
         // topic spinner part
-        Spinner spinner = (Spinner) findViewById(R.id.spinnerTopics);
+        spinner = (Spinner) findViewById(R.id.spinnerTopics);
         // Spinner click listener
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.topics_array, android.R.layout.simple_spinner_item);
@@ -86,6 +93,27 @@ public class AddQuestionActivity extends AppCompatActivity {
                 return;
             }
         } else {
+
+            //il y a encore des erreurs pour ajouter une question
+
+            //insert question into database
+            String topic = spinner.getSelectedItem().toString();
+          //                String.valueOf(mySpinner.getSelectedItem());
+            //String topic = "SWD";
+            String title = etTitle.getText().toString();
+            String content = etContent.getText().toString();
+            String username = "salut"; //trouver le moyen de savoir le username depuis login
+
+
+            userDbHelper = new UserDbHelper(context);
+            sqLiteDatabase = userDbHelper.getWritableDatabase();
+            userDbHelper.addQuestion(topic, title, content, "salut", sqLiteDatabase);
+            Toast.makeText(getBaseContext(), "Question created", Toast.LENGTH_LONG).show();
+            userDbHelper.close();
+
+
+
+            //redirect to questionList
             Intent i = new Intent(AddQuestionActivity.this, QuestionsListActivity.class);
             AddQuestionActivity.this.startActivity(i);
 
