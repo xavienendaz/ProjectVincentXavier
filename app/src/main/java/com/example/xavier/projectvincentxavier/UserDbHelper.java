@@ -13,6 +13,8 @@ import android.util.Log;
 
 public class UserDbHelper extends SQLiteOpenHelper {
 
+    public SQLiteDatabase db;
+
     private static final String DATABASE_NAME = "PROJECT.DB";
     private static final int DATABASE_VERSION = 1;
 
@@ -80,6 +82,59 @@ public class UserDbHelper extends SQLiteOpenHelper {
     }
 
 
+    /* verify if the user write username and password correctly */
+    public boolean verifyUserLogin(String username, String password) {
+
+        String query = "Select * FROM " + DB_Contract.NewUserInfo.TABLE_NAME + " WHERE "
+                + DB_Contract.NewUserInfo.USER_NAME + " =  \"" + username + "\""
+                + " AND " + DB_Contract.NewUserInfo.USER_PASSWORD + " =  \"" + password + "\"";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        DataProviderUser user = new DataProviderUser();
+
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            user.setUsername(cursor.getString(0));
+            user.setPassword(cursor.getString(1));
+            cursor.close();
+        } else {
+            return false;
+        }
+        db.close();
+        return true;
+    }
+
+
+    /* When a user register, verify that the username is not in database */
+    public boolean verifyRegisterUsername(String username) {
+
+        String query = "Select * FROM " + DB_Contract.NewUserInfo.TABLE_NAME + " WHERE "
+                + DB_Contract.NewUserInfo.USER_NAME + " =  '" + username + "'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        DataProviderUser user = new DataProviderUser();
+
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            user.setUsername(cursor.getString(0));
+            cursor.close();
+        } else {
+            //if the username is not in database
+            db.close();
+            return false;
+        }
+        db.close();
+        //if the username is already in database
+        return true;
+    }
+
+
     //get user from database
     public Cursor getUser(String username, SQLiteDatabase sqLiteDatabase){
         String[] projections = {DB_Contract.NewUserInfo.USER_NAME, DB_Contract.NewUserInfo.USER_PASSWORD};
@@ -87,6 +142,31 @@ public class UserDbHelper extends SQLiteOpenHelper {
         String [] selectionArg = {username};
         Cursor cursor = sqLiteDatabase.query(DB_Contract.NewUserInfo.TABLE_NAME,projections,selection,selectionArg,null,null,null);
         return cursor;
+    }
+
+
+    //find one User
+    public DataProviderUser findOneUser(String username) {
+        String query = "Select * FROM " + DB_Contract.NewUserInfo.TABLE_NAME + " WHERE "
+                + DB_Contract.NewUserInfo.USER_NAME + " =  \"" + username + "\"";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        DataProviderUser user = new DataProviderUser();
+
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            //user.setID(Integer.parseInt(cursor.getString(0)));
+            user.setUsername(cursor.getString(0));
+            user.setPassword(cursor.getString(1));
+            cursor.close();
+        } else {
+            user = null;
+        }
+        db.close();
+        return user;
     }
 
 
@@ -103,6 +183,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
         db.insert(DB_Contract.NewQuestion.TABLE_NAME,null,contentValues);
         Log.e("DATABASE OPERATIONS", "One Question inserted");
     }
+
 
 
 }

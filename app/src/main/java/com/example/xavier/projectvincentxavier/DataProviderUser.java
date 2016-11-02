@@ -9,6 +9,8 @@ public class DataProviderUser {
     private String username;
     private String password;
 
+    public DataProviderUser(){}
+
     public DataProviderUser(String username, String password){
         this.username=username;
         this.password=password;

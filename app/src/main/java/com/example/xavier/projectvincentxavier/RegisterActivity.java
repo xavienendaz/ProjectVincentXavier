@@ -17,7 +17,7 @@ public class RegisterActivity extends AppCompatActivity {
     Context context = this;
     UserDbHelper userDbHelper;
     SQLiteDatabase sqLiteDatabase;
-    EditText etUsername, etPassword;
+    EditText etUsername, etPassword, etConfirmPassword;
 
 
     @Override
@@ -28,6 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         etPassword = (EditText) findViewById(R.id.etPassword);
         etUsername = (EditText) findViewById(R.id.etUsername);
+        etConfirmPassword = (EditText) findViewById(R.id.etConfirmPassword);
 
         //go back to login
         final TextView tv = (TextView) findViewById(R.id.tvAlreadyMember);
@@ -47,8 +48,9 @@ public class RegisterActivity extends AppCompatActivity {
     public void registerUser(View view) {
         String verifyPassword = etPassword.getText().toString();
         String verifyUsername = etUsername.getText().toString();
-
-            //set error if the user let one field empty
+        String confirmPassword = etConfirmPassword.getText().toString();
+        userDbHelper = new UserDbHelper(context);
+            //show error message if the user let one field empty
         if (TextUtils.isEmpty(verifyPassword) || TextUtils.isEmpty(verifyUsername)) {
             if(TextUtils.isEmpty(verifyPassword) && TextUtils.isEmpty(verifyUsername)){
                 etPassword.setError("Enter a password");
@@ -63,26 +65,40 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }else {
 
+             /*Verify if password and confirm password are equals*/
+            if (!verifyPassword.equals(confirmPassword)) {
+                Toast.makeText(getApplicationContext(),
+                        "Password does not match", Toast.LENGTH_SHORT).show();
+                return;
+            } else {
 
-            /****************
-             *   /here we need to check in the database if the username already exist
-             ****************/
+                 /* the method verifyRegisterUsername verify if the user is already used in database */
+                    if(userDbHelper.verifyRegisterUsername(verifyUsername) == false){
+
+                    String username = etUsername.getText().toString();
+                    String password = etPassword.getText().toString();
+
+                    userDbHelper = new UserDbHelper(context);
+                    sqLiteDatabase = userDbHelper.getWritableDatabase();
+                    userDbHelper.addInfo(username, password, sqLiteDatabase);
+                    Toast.makeText(getBaseContext(), "User created", Toast.LENGTH_SHORT).show();
+                    userDbHelper.close();
+
+                    //open the loginActivity when user register
+                    Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                    RegisterActivity.this.startActivity(i);
+                }else{
+                    //if the username is already in database
+                    Toast.makeText(getBaseContext(), "Username already exist", Toast.LENGTH_SHORT).show();
+                }
+
+            }
 
 
 
-            //if username and password are not empty
-                String username = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
 
-                userDbHelper = new UserDbHelper(context);
-                sqLiteDatabase = userDbHelper.getWritableDatabase();
-                userDbHelper.addInfo(username, password, sqLiteDatabase);
-                Toast.makeText(getBaseContext(), "User created", Toast.LENGTH_SHORT).show();
-                userDbHelper.close();
 
-            //open the loginActivity when user register
-            Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
-            RegisterActivity.this.startActivity(i);
+
             }
 
 

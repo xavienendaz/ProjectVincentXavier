@@ -6,10 +6,19 @@ package com.example.xavier.projectvincentxavier;
 
 public class DataProviderQuestion {
 
+    private int id;
     private String topic;
     private String title;
     private String content;
     private String username;
+
+    public DataProviderQuestion(int id, String topic, String title, String content, String username){
+        this.id=id;
+        this.topic=topic;
+        this.title=title;
+        this.content=content;
+        this.username=username;
+    }
 
     public DataProviderQuestion(String topic, String title, String content, String username){
         this.topic=topic;
@@ -18,6 +27,9 @@ public class DataProviderQuestion {
         this.username=username;
     }
 
+    public int getId() {return id;}
+
+    public void setId(int id) {this.id = id;}
 
     public String getTopic() {return topic;}
 
