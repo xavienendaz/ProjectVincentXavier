@@ -21,18 +21,14 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <EditText
+    <ImageView
+        android:id="@+id/imageLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/etPassword"
-        android:hint="Password"
-        android:layout_above="@+id/bLogin"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:scaleType="center"
+        android:src="@drawable/loginimage"
+        android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -41,46 +37,43 @@
         android:ems="10"
         android:id="@+id/etUsername"
         android:hint="Username"
-        android:layout_above="@+id/etPassword"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <ImageView
-        android:id="@+id/imageLogin"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="center"
-        android:src="@drawable/login"
-        android:layout_marginBottom="30px"
-        android:layout_gravity="center_horizontal"
-        android:layout_above="@id/etUsername"
-        android:adjustViewBounds="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/etPassword"
+        android:hint="Password"
+        android:layout_below="@+id/etUsername"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="Register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvRegister"
-        android:layout_marginBottom="25dp"
-        android:layout_above="@+id/tvUserArea"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/bLogin"
-        android:layout_above="@+id/tvRegister"
+        android:onClick="buttonLogin"
+        android:layout_below="@+id/etPassword"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="buttonLogin"/>
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvRegister"
+        android:layout_below="@+id/bLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp" />
 </RelativeLayout>
